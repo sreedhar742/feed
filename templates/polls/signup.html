@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock custom_css %}  
+
+<style>
+    .custom-card-body {
+        height: 0px;
+        
+    }
+</style>
+
+<div class="card text-center border-0">
+    <div class="card-body custom-card-body">
+        <h1>Welcome To Feedback System</h1>
+
+        <form method="post" action=" ">
+            
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
